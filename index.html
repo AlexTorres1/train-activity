@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
 </head>
 <body>
     <div class=container>
         <div class="jumbotron mt-4">
-            <h1 class="display-4 text-center">Train , world!</h1>
+            <h1 class="display-4 text-center" id="mainHead">Train World</h1>
         </div>
-    </div>
+    <!-- </div> -->
 
     <!-- <div class=container>
         <table class="table table-bordered">
@@ -38,8 +40,10 @@
             </tbody>
           </table>
     </div> --> 
-    
-<div class="container">
+
+<div class="row">
+<div class="col-sm-8">    
+
 <div class="card">
     <h5 class="card-header">Current Train Schedule</h5>
     <div class="card-body">                  
@@ -53,9 +57,8 @@
                     <th scope="col">Minutes Away</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <!-- <th scope="row">1</th> -->
+            <tbody id="train-table-rows">
+                <!-- <tr>
                     <td>Train Name</td>
                     <td>Destination</td>
                     <td>Frequency(min)</td>
@@ -63,21 +66,20 @@
                     <td>Minutes Away</td>
                 </tr>
                 <tr>
-                    <!-- <th scope="row">1</th> -->
                     <td>Train Name</td>
                     <td>Destination</td>
                     <td>Frequency(min)</td>
                     <td>Next Arrival</td>
                     <td>Minutes Away</td>
-                </tr>
+                </tr> -->
             </tbody>
-        </table>
-        <!-- </div> -->
+        </table>        
     </div>
 </div>
 </div>  
 
-<div class="container mt-4 mb-4">
+
+<div class="col-sm-4">    
     <div class="card">
         <h5 class="card-header">Add Train</h5>
         <div class="card-body">     
@@ -86,33 +88,35 @@
                 <div class="input-group-prepend">
                     <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
                 </div>
-                <input type="text" class="form-control" placeholder="Enter Train Destination " aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="Enter Train Name " aria-label="Username" aria-describedby="basic-addon1" id="trainName">
             </div>   
             <h5 class="text">Destination</h5>             
             <div class="input-group mb-1">
                 <div class="input-group-prepend">
                     <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
                 </div>
-                <input type="text" class="form-control" placeholder="Enter Train Name " aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="Enter Train Destination " aria-label="Username" aria-describedby="basic-addon1" id="trainDestination">
             </div> 
             <h5 class="text">First Train Time</h5>             
             <div class="input-group mb-1">
                 <div class="input-group-prepend">
                     <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
                 </div>
-                <input type="text" class="form-control" placeholder="Enter First Train Time" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="Enter First Train Time HH:MM" aria-label="Username" aria-describedby="basic-addon1" id="trainTime">
             </div> 
             <h5 class="text">Frequency (min)</h5>             
             <div class="input-group mb-1">
                 <div class="input-group-prepend">
                     <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
                 </div>
-                <input type="text" class="form-control" placeholder="Enter Frequency (min) " aria-label="Username" aria-describedby="basic-addon1">
-            </div>          
+                <input type="text" class="form-control" placeholder="Enter Frequency (min) " aria-label="Username" aria-describedby="basic-addon1" id="trainFrequency">                
+            </div>         
+            <button class="btn btn-primary float-right mt-4" id="add-train-btn">Submit</button>
         </div>
     </div>
 </div> 
-
+</div> 
+</div>
 
 
 

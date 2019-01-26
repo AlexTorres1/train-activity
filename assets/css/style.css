@@ -1,0 +1,9 @@
+body{
+    background-image: url(../images/station-347565_1920.jpg);
+}
+
+#mainHead{
+    font-family: "ChippewaFallsNF";
+    background: black;
+    color: white;
+}
