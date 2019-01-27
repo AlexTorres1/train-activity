@@ -11,33 +11,34 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
+//button to capture input user inputs
 $("#add-train-btn").on("click", function() {
     event.preventDefault();
 var trainName = $("#trainName").val().trim();
 var trainDestination = $("#trainDestination").val().trim();
 var trainTime = $("#trainTime").val().trim();
 var trainFrequency = $("#trainFrequency").val().trim();
-
+//object to store the inputs
 var newTrain = {
     name: trainName,
     destination: trainDestination,
     time: trainTime,
     frequency: trainFrequency
 };
-
+//calls the firebase database to store the input
 database.ref().push(newTrain);
 
 console.log(newTrain.name);
 console.log(newTrain.destination);
 console.log(newTrain.time);
 console.log(newTrain.frequency);
-
+//empites the values entered
 $("#trainName").val("");
 $("#trainDestination").val("");
 $("#trainTime").val("");
 $("#trainFrequency").val("");
 });
-
+//calls firebase to add the information to the screen 
 database.ref().on("child_added", function(childSnapshot) {
     console.log(childSnapshot.val());
 
